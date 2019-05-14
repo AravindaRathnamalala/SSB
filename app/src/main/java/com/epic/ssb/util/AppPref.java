@@ -65,4 +65,18 @@ public class AppPref {
     public String getImageUri(String key) {
         return mPreferences.getString(key, "");
     }
+
+    public void putImageIDUri(String uri, String key) {
+        try {
+            SharedPreferences.Editor editor = mPreferences.edit();
+            editor.putString(key, uri);
+            editor.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String getImageIDUri(String key) {
+        return mPreferences.getString(key, "");
+    }
 }

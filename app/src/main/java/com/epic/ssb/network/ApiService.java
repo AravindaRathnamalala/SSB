@@ -54,7 +54,7 @@ public interface ApiService {
                     .build();
 
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("")
+                    .baseUrl("http://192.168.20.222/DFAR_MOBILE/")
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .client(okHttpClient)

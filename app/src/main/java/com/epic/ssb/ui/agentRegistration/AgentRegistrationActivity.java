@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -13,6 +14,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,6 +26,7 @@ import com.bumptech.glide.request.target.Target;
 import com.epic.ssb.R;
 import com.epic.ssb.data.AgentModel;
 import com.epic.ssb.ui.base.BaseActivity;
+import com.epic.ssb.ui.menu.MenuActivity;
 import com.epic.ssb.util.AppDialog;
 import com.epic.ssb.util.AppPref;
 import com.epic.ssb.util.Constant;
@@ -156,16 +159,38 @@ public class AgentRegistrationActivity extends BaseActivity implements AgentRegi
                 }
                 break;
             case R.id.btnSurekumaSubmit:
-                agentModel.setNameOfAgent(editName.getText().toString());
-                agentModel.setAddress(editAddress.getText().toString());
-                agentModel.setEmail(editEmail.getText().toString());
-                agentModel.setGender(editGender.getText().toString());
-                agentModel.setNic(editNIC.getText().toString());
-                agentModel.setTelephone(editTelephone.getText().toString());
-                agentModel.setDistrict(editDistrict.getText().toString());
-                agentModel.setDsOffice(editDsOffice.getText().toString());
-                String s = new Gson().toJson(agentModel);
-                System.out.println(s);
+
+                final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        builder.setTitle("Confirmation Alert !");
+                        builder.setMessage("Are you sure to submit details?");
+                        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                agentModel.setNameOfAgent(editName.getText().toString());
+                                agentModel.setAddress(editAddress.getText().toString());
+                                agentModel.setEmail(editEmail.getText().toString());
+                                agentModel.setGender(editGender.getText().toString());
+                                agentModel.setNic(editNIC.getText().toString());
+                                agentModel.setTelephone(editTelephone.getText().toString());
+                                agentModel.setDistrict(editDistrict.getText().toString());
+                                agentModel.setDsOffice(editDsOffice.getText().toString());
+                                String s = new Gson().toJson(agentModel);
+                                System.out.println(s);
+                                startActivity(new Intent(AgentRegistrationActivity.this, MenuActivity.class));
+
+                            }
+                        });
+                        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // User cancelled the dialog
+                            }
+                        });
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
+                    }
+                });
 
         }
     }

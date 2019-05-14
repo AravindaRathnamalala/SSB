@@ -8,6 +8,8 @@ import com.epic.ssb.injection.ApplicationContext;
 import com.epic.ssb.network.ApiService;
 import com.epic.ssb.util.ConnectionDetector;
 
+import javax.inject.Inject;
+
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -19,6 +21,7 @@ public class SurekumaSync {
     private final Context mContext;
     private final ApiService mApiService;
 
+    @Inject
     public SurekumaSync(@ApplicationContext Context mContext, ApiService mApiService) {
         this.mContext = mContext;
         this.mApiService = mApiService;

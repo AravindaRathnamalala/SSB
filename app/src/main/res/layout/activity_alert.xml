@@ -1,9 +1,110 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.alert.AlertActivity">
 
-</android.support.constraint.ConstraintLayout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="@dimen/_10sdp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:id="@+id/login_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:paddingRight="@dimen/_8sdp"
+        android:paddingLeft="@dimen/_8sdp">
+
+
+
+        <LinearLayout
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="@dimen/_250sdp"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:background="@drawable/layout_border"
+            android:layout_alignParentBottom="true">
+
+            <TextView
+                android:id="@+id/login_emailid"
+                android:singleLine="true"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_60sdp"
+                android:background="@android:color/transparent"
+                android:text="Your Reference Number is:"
+                android:drawablePadding="@dimen/_4sdp"
+                android:gravity="center"
+                android:padding="@dimen/_5sdp"
+                android:textColor="@color/colorPrimary"
+                android:layout_gravity="center"
+                android:textSize="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+
+                />
+
+
+
+            <TextView
+                android:id="@+id/login_password"
+                android:singleLine="true"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:drawablePadding="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+               android:text="REF-0012532"
+                android:padding="@dimen/_5sdp"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/white"
+                android:textSize="@dimen/_15sdp"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:gravity="center"
+                />
+
+
+
+
+            <Button
+                android:id="@+id/loginBtn"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_35sdp"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:background="@drawable/btn_selector"
+                android:padding="@dimen/_8sdp"
+                android:text="OK"
+                android:textAllCaps="false"
+                android:textColor="#009688"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold"
+                android:layout_alignParentBottom="true"
+
+                />
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/createAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:gravity="center"
+        android:padding="@dimen/_3sdp"
+        android:text="new User"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_10sdp" />
+
+</RelativeLayout>

@@ -105,7 +105,7 @@
                         android:id="@+id/editDOB"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_25sdp"
-                        android:inputType="text"
+                        android:inputType="date"
                         android:maxLines="1"
                         android:layout_gravity="center"
                         android:layout_margin="@dimen/_8sdp"
@@ -115,6 +115,8 @@
                         android:background="@drawable/edit_text_background"
                         style="@style/editText"
                         android:paddingLeft="@dimen/_8sdp"
+                        android:editable="false"
+                        android:focusable="false"
                         />
 
                 </LinearLayout>
@@ -165,21 +167,39 @@
                         android:text="Type of premium payment"/>
 
 
-                    <EditText
-                        android:id="@+id/editTypePremium"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_25sdp"
-                        android:inputType="text"
-                        android:maxLines="1"
-                        android:layout_gravity="center"
-                        android:layout_margin="@dimen/_8sdp"
-                        android:textColor="#2C2C2C"
-                        android:singleLine="true"
-                        android:textAppearance="@style/editText"
-                        android:background="@drawable/edit_text_background"
-                        style="@style/editText"
-                        android:paddingLeft="@dimen/_8sdp"
-                        />
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/editTypePremium"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_25sdp"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:layout_gravity="center"
+                            android:layout_margin="@dimen/_8sdp"
+                            android:textColor="#2C2C2C"
+                            android:singleLine="true"
+                            android:textAppearance="@style/editText"
+                            android:background="@drawable/edit_text_background"
+                            style="@style/editText"
+                            android:paddingLeft="@dimen/_8sdp"
+                            android:layout_weight="1"
+                            />
+                        <Button
+                            android:id="@+id/btnCal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3"
+                            android:layout_margin="@dimen/_8sdp"
+                            android:text="Cal"
+                            android:background="@drawable/menu_button"
+                            android:textColor="@color/white"/>
+
+                    </LinearLayout>
+
 
                 </LinearLayout>
 
@@ -197,11 +217,11 @@
                         android:text="Monthly pension"/>
 
 
-                    <EditText
+                    <TextView
                         android:id="@+id/monthlyPension"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_25sdp"
-                        android:inputType="text"
+                        android:inputType="numberDecimal"
                         android:maxLines="1"
                         android:layout_gravity="center"
                         android:layout_margin="@dimen/_8sdp"
@@ -212,6 +232,48 @@
                         style="@style/editText"
                         android:paddingLeft="@dimen/_8sdp"
                         />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:layout_marginRight="@dimen/_8sdp"
+                    android:paddingLeft="@dimen/_8sdp"
+                    android:paddingTop="@dimen/_8sdp"
+                    android:text="Photo of Birth Certificate"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/layout_border"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/_5sdp"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:layout_marginLeft="@dimen/_12sdp"
+                    android:layout_marginRight="@dimen/_12sdp">
+
+                    <ImageView
+                        android:id="@+id/ivBCPhoto"
+                        android:layout_width="@dimen/_200sdp"
+                        android:layout_height="@dimen/_220sdp"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/_30sdp"
+                        android:src="@drawable/empty_applicant_pic"
+                        android:visibility="visible" />
+
+                    <Button
+                        android:id="@+id/btnBCPhoto"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:alpha="0.9"
+                        android:background="@drawable/ic_cam"
+                        android:textColor="@color/white"
+                        android:visibility="visible" />
 
                 </LinearLayout>
 
